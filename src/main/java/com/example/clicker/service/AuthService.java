@@ -56,5 +56,4 @@ public class AuthService {
         if (!password.matches(".*[!@#$%^&*(),.?\":{}|<>].*"))
             throw new RuntimeException("Password must contain at least one special character");
     }
-
 }
