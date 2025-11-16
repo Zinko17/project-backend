@@ -5,16 +5,16 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-
-import java.util.Date;
 import java.security.Key;
+import java.util.Date;
 
 @Service
 public class JwtService {
+
     @Value("${JWT_SECRET}")
     private String jwtSecret;
 
-    private final long expirationMs = 86400000;
+    private final long expirationMs = 24 * 60 * 60 * 1000L; // 1 день
 
     private Key getSignKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
